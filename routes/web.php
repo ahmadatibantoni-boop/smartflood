@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SensorController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,3 +21,6 @@ Route::get('/location',function(){
 Route::get('/teknologi',function(){
     return view('teknologi');
 });
+
+Route::get('/sensor', [SensorController::class, 'showForm']);
+Route::post('/hasil-sensor', [SensorController::class, 'prosesData']);
